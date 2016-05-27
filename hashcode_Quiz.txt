@@ -1,0 +1,98 @@
+Effective Java : 
+Equal objects must have equal hashcodes.
+
+Always override hashCode when you override equals. A common source of bugs is the failure to override hashCode method. You must override hashCode in every class that overrides equals Failure to do so will prevent your class from functioning properly in conjunction with all hash-based collections - HashMap, Hashset..
+
+When you don't provide hashcode implementation, Hash based collections(map,set) uses system generated hashcode to store and retrieve which happens to be different even when two objects have the same attributes.
+
+
+Which of the following are valid implementation of equals() method of a class TestClass? 
+ 1. 
+ public boolean equals(TestClass tc) 
+ { 
+     return this == tc; 
+ } 
+ 2. 
+ public boolean equals(TestClass tc) 
+ { 
+     return this != tc; 
+ } 
+ 3. 
+ public boolean equals(Object tc) 
+ { 
+     return this == tc; 
+ } 
+ 4. 
+ public boolean equals(Object tc) 
+ { 
+     if( tc instanceof TestClass && this.someVar == ( (TestClass)tc).someVar ) 
+     { 
+         if(this != tc) return true; 
+         else return false; 
+     } 
+     else return false; 
+ } 
+  
+   
+   
+  
+  
+ Select 1 correct option. 
+ a  1   
+        
+         
+ b  2   
+        
+         
+ c  3   
+        
+         
+ d  4   
+        
+         
+ e  None of these. 
+
+
+Which of the following statments are correct regarding the equals() method? 
+   
+   
+  
+  
+ Select 1 correct option. 
+ a  It must be symetric but need not be transitive.   
+        
+         
+ b  It must be reflexive but need not be transitive.   
+        
+         
+ c  It must be symetric and transitive but not reflexive.   
+        
+         
+ d  If passed a null, it must return false.   
+        
+         
+ e  None of these. 
+  
+
+
+
+
+Given:
+11. public class Person {
+12. private String name, comment;
+13. private int age;
+14. public Person(String n, int a, String c) {
+15. name = n; age = a; comment = c;
+16. }
+17. public boolean equals(Object o) {
+18. if(! (o instanceof Person)) return false;
+19, Person p = (Person)o;
+20. return age == p.age && name.equals(p.name);
+21. }
+22. }
+What is the appropriate definition of the hashCode method in class
+Person?
+A. return super.hashCode();
+B. return name.hashCode() + age * 7;
+C. return name.hashCode() + comment.hashCode() /2;
+D. return name.hashCode() + comment.hashCode() / 2 - age * 3;
